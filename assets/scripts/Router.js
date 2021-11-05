@@ -49,7 +49,7 @@ export class Router {
    *                              'popstate' event instead of a normal card click
    */
   navigate(page, statePopped) {
-    console.log(`navigate() function called, requested page: ${page}`);
+    console.log(`navigate() function called, requested page: ${page}, state popped: ${statePopped}`);
     /**
      * TODO - Part 1 - Step 4
      * Now, we are going to call the functions that we stored earlier based on 
@@ -66,22 +66,26 @@ export class Router {
      *     and URL + hash to history
      *  4. Finally, call the stored function for the given page
      */
-    if(!this)
+    console.log("page: ", page)
+    console.log("this: ", this[page]);
+    if(!this[page])
     {
       console.error('Error');
+      return;
     }
     else
     {
-      let hash = '';
+      var hash = '';
       if(page != 'home')
       {
         hash = `#${page}`;
       }
-      if(statePopped == false && window.location.hash != hash)
+      if(!statePopped && window.location.hash != hash)
       {
-        history.pushState({'page': page}, '', window.location.href);
+        history.pushState({'page': page}, '', window.location.origin+hash);
       }
     }
+    console.log('hash: ', hash);
     this[page]();
-  }
+  }  
 }

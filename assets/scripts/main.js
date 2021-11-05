@@ -128,14 +128,14 @@ function createRecipeCards() {
       document.querySelector('.section--recipe-cards').classList.remove('shown');
       document.querySelector('.section--recipe-expand').classList.add('shown');
       document.querySelector('recipe-expand').data = recipeData[recipes[i]];
-  });
+    });
     if(i > 2)
     {
       recipeCard.classList.add('hidden');
     }
-      bindRecipeCard(recipeCard, page);
+    bindRecipeCard(recipeCard, page);
 
-      document.querySelector('.recipe-cards--wrapper').appendChild(recipeCard);
+    document.querySelector('.recipe-cards--wrapper').appendChild(recipeCard);
   }
 }
 
@@ -219,15 +219,16 @@ function bindPopstate() {
    * so your navigate() function does not add your going back action to the history,
    * creating an infinite loop
    */
-
+   console.log("event.state");
   window.addEventListener('popstate', (event)=>{
-    if(event.state != undefined)
+    console.log(event.state);
+    if(event.state && event.state.page)
     {
-      router.navigate(event.state.,true);
+      router.navigate(event.state.page, true);
     }
     else
     {
-      router.navigate('home', ture);
+      router.navigate('home', true);
     }
   })
 }
