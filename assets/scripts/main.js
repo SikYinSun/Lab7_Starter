@@ -129,11 +129,11 @@ function createRecipeCards() {
       document.querySelector('.section--recipe-expand').classList.add('shown');
       document.querySelector('recipe-expand').data = recipeData[recipes[i]];
     });
+    bindRecipeCard(recipeCard, page);
     if(i > 2)
     {
       recipeCard.classList.add('hidden');
     }
-    bindRecipeCard(recipeCard, page);
 
     document.querySelector('.recipe-cards--wrapper').appendChild(recipeCard);
   }
