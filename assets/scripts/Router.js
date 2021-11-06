@@ -1,4 +1,4 @@
-// router.js test
+// router.js
 
 /** Some hints for this router:
   *   - the functions being passed in should mostly be stored so that

@@ -1,4 +1,4 @@
-// main.js test
+// main.js
 
 import { Router } from './Router.js';
 
